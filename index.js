@@ -8,26 +8,6 @@ deck = buildDeck();
 drawn = [];
 discarded = [];
 
-// Rules
-// rules = JSON.parse(
-//     {
-//         "1":"[PLAYER] [ACTION] 1 SVIRPs",
-//         "2":"[PLAYER] [ACTION] 2 SVIRPs",
-//         "3":"[PLAYER] [ACTION] 3 SVIRPs",
-//         "4":"[PLAYER] [ACTION] 4 SVIRPs",
-//         "5":"[PLAYER] [ACTION] 5 SVIRPs",
-//         "6":"[PLAYER] earned a TABLE THUMB",
-//         "7":"[PLAYER] earned a GLASS FINGER",
-//         "8":"[PLAYER] [ACTION] a BUS",
-//         "9":"WILDCARD",
-//         "10":"SVIRP!",
-//         "11":"[PLAYER] earned THE WOODEN MAN",
-//         "12":"[NUMBER OF RULE] RULE is in play: [RULE OF RULE]",
-//         "13":"[PLAYER] is THE KING",
-//         "14":"[PLAYER] is the KINGMAKER"
-//     }
-// );
-
 actions = 
 [
     "[PLAYER] [DIRECTION] 1 SVIRPs",

@@ -1,24 +1,254 @@
-html {
-
+.console {
+  display: none;
 }
 
 .console div {
-    margin: 20p 0;
-    padding: 10px 20px;
+  margin: 20p 0;
+  padding: 10px 20px;
 }
 
 .console .players {
-    background-color: yellow;
+  background-color: yellow;
 }
 
 .console .deck {
-    background-color: green;
+  background-color: green;
 }
 
 .console .drawn {
-    background-color: blue;
+  background-color: blue;
 }
 
 .console .discarded {
-    background-color: red;
+  background-color: red;
 }
+
+.controls {
+  display: none;
+}
+
+html body {
+  margin: 0;
+  padding: 0;
+}
+html body .main {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+html body .main .heading {
+  margin: 1% calc(2% + 5px);
+  color: #F5F9FB;
+  font-family: "Kanit";
+}
+html body .main .rules {
+  border-bottom: 3px solid #F5F9FB;
+  box-sizing: border-box;
+  height: 10%;
+  background-color: black;
+  background-image: url("https://www.transparenttextures.com/patterns/leather.png");
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 1%;
+  background-color: #6a3701;
+  background-image: url(http://www.transparenttextures.com/patterns/wood-pattern.png);
+}
+html body .main .rules .rules-wrapper {
+  display: flex;
+  flex: 1;
+}
+html body .main .rules .rules-wrapper .rule {
+  border: 3px solid #F5F9FB;
+  flex: 1;
+  margin: 1% 2%;
+  border-radius: 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: white;
+  font-family: "Kanit";
+  font-size: 10px;
+  padding: 0 5px;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+html body .main .rules .rules-wrapper .rule i {
+  color: black;
+}
+html body .main .players {
+  border-bottom: 3px solid #F5F9FB;
+  box-sizing: border-box;
+  height: 15%;
+  background-color: #6a3701;
+  background-image: url(http://www.transparenttextures.com/patterns/wood-pattern.png);
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 1%;
+  background-color: black;
+  background-image: url("https://www.transparenttextures.com/patterns/leather.png");
+}
+html body .main .players .players-wrapper {
+  display: flex;
+  flex: 1;
+}
+html body .main .players .players-wrapper .player {
+  border: 3px solid #F5F9FB;
+  flex: 1;
+  margin: 1% 2%;
+  border-radius: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+html body .main .players .players-wrapper .player i {
+  color: #F5F9FB;
+}
+html body .main .board {
+  background-color: #35654d;
+  display: flex;
+  flex: 1;
+  justify-content: center;
+  align-items: stretch;
+  background-image: url(http://www.transparenttextures.com/patterns/pool-table.png);
+}
+html body .main .board .deck {
+  margin: 5%;
+  aspect-ratio: 2/3;
+  border: 3px solid #F5F9FB;
+  border-radius: 15px;
+  box-sizing: border-box;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+}
+html body .main .board .deck .card {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  top: 0;
+  left: 0;
+}
+html body .main .board .deck .card:hover .front {
+  -webkit-animation: rotateAnimationFront 1.5s ease-in-out forwards;
+          animation: rotateAnimationFront 1.5s ease-in-out forwards;
+}
+@-webkit-keyframes rotateAnimationFront {
+  from {
+    transform: rotateY(-180deg);
+  }
+  to {
+    transform: rotateY(0deg);
+  }
+}
+@keyframes rotateAnimationFront {
+  from {
+    transform: rotateY(-180deg);
+  }
+  to {
+    transform: rotateY(0deg);
+  }
+}
+html body .main .board .deck .card:hover .back {
+  -webkit-animation: rotateAnimationBack 1.5s ease-in-out forwards;
+          animation: rotateAnimationBack 1.5s ease-in-out forwards;
+}
+@-webkit-keyframes rotateAnimationBack {
+  from {
+    transform: rotateY(0deg);
+  }
+  to {
+    transform: rotateY(180deg);
+  }
+}
+@keyframes rotateAnimationBack {
+  from {
+    transform: rotateY(0deg);
+  }
+  to {
+    transform: rotateY(180deg);
+  }
+}
+html body .main .board .deck .card .front {
+  transform: rotateY(-180deg);
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  top: 0;
+  left: 0;
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+  box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.75);
+}
+html body .main .board .deck .card .front .face {
+  background: url("images/King.png");
+  position: absolute;
+  width: 100%;
+  height: 50%;
+  background-size: cover;
+  background-position: top;
+  border-bottom: 2px solid #F5F9FB;
+}
+html body .main .board .deck .card .front .face.top {
+  top: 0;
+}
+html body .main .board .deck .card .front .face.bottom {
+  bottom: 0;
+  transform: scale(-1);
+}
+html body .main .board .deck .card .front .face .index {
+  position: absolute;
+  background-color: #F5F9FB;
+  width: 25%;
+  aspect-ratio: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2%;
+  font-family: "Kanit";
+  font-size: 2rem;
+  border: 3px solid #F5F9FB;
+  box-sizing: border-box;
+  border-radius: 15px 0;
+  color: rgb(211, 0, 0);
+  flex-direction: column-reverse;
+  left: -3px;
+  top: -3px;
+  box-shadow: 1px 1px 3px 1px rgba(0, 0, 0, 0.75);
+  -webkit-text-emphasis: none;
+          text-emphasis: none;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+html body .main .board .deck .card .front .face .index i {
+  font-size: 1.7rem;
+}
+html body .main .board .deck .card .back {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  top: 0;
+  left: 0;
+  background-image: url("icons/poker.png");
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: "Kanit";
+  font-size: 5rem;
+  text-shadow: 6px 6px rgba(63, 68, 73, 0.75);
+  color: #F17B89;
+  -webkit-text-emphasis: none;
+          text-emphasis: none;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  background-color: #F5F9FB;
+  box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.75);
+}/*# sourceMappingURL=index.css.map */
